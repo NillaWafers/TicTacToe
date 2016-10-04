@@ -99,6 +99,11 @@ namespace TicTacToe
             Console.ForegroundColor = ConsoleColor.Red;
             string row = "TOP    BOTTOM";
             Console.WriteLine(row);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            row = "Y = 1" + h_gap + "Y = 3";
+            Console.WriteLine(row);
+            row = "X→ Z↓" + h_gap + "X→ Z↑";
+            Console.WriteLine(row);
             Console.ResetColor();
             row = "";
 
@@ -112,9 +117,9 @@ namespace TicTacToe
 
                 row += gap;
 
-                for (byte z = 0; z < gridDisplays[(byte)SliceBounds.Lower].GetLength(1); z++)
+                for (byte z = (byte)gridDisplays[(byte)SliceBounds.Lower].GetLength(1); z > 0; z--)
                 {
-                    row = row + gridDisplays[2][z, x];
+                    row = row + gridDisplays[2][z - 1, x];
                 }
 
                 row = DrawGridPairRow(row);
@@ -123,6 +128,11 @@ namespace TicTacToe
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             row = "FRONT" + h_gap + "BACK";
+            Console.WriteLine(row);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            row = "X = 1" + h_gap + "X = 3";
+            Console.WriteLine(row);
+            row = "Y↓ Z→" + h_gap + "Y↓ Z←";
             Console.WriteLine(row);
             row = "";
 
@@ -147,6 +157,11 @@ namespace TicTacToe
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             row = "LEFT" + h_gap + " " + "RIGHT";
+            Console.WriteLine(row);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            row = "Z = 1" + h_gap + "Z = 3";
+            Console.WriteLine(row);
+            row = "X→ Y↓" + h_gap + "X← Y↓";
             Console.WriteLine(row);
             row = "";
 
