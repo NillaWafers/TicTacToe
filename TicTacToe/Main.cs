@@ -10,12 +10,11 @@ namespace TicTacToe
 {
 	class TicTacToe
 	{
-		private const string pat = @"^[123]";
+        private const string pat = @"^[123]";
 
 		static void Main(string[] args)
 		{
-			char k = '~';
-
+            char k = '~';
 			do
 			{
 				ConsoleRenderer.RenderMenu();
@@ -52,16 +51,22 @@ namespace TicTacToe
 		static void GameLoop()
 		{
 			char k = 'Y';
+            int playerWin = 0;
+            int gamesPlayed = 0;
 
 			do
 			{
-				Game();
+				Game(playerWin,gamesPlayed);
 				Console.WriteLine();
 				Console.WriteLine("Would you like to play again (Y/N)?");
 
 				do
 				{
 					k = Char.ToUpper(Console.ReadKey().KeyChar);
+                    if (k == 'Y')
+                    {
+                        gamesPlayed++;
+                    }
 
 					if (k != 'Y' && k != 'N')
 						Console.WriteLine("Please answer Y or N");
@@ -71,7 +76,7 @@ namespace TicTacToe
 			while (k == 'Y');
 		}
 
-		private static void Game()
+		private static void Game(int playerWin,int gamesPlayed)
 		{
 			bool playerOne = false;
 			string[] inputArray;
@@ -126,6 +131,16 @@ namespace TicTacToe
 					Environment.Exit(0);
 				}
 
+                if (inputArray[0].ToUpper() == "SAVE")
+                {
+                    // Example #2: Write one string to a text file.
+                    string text = playerWin+","+gamesPlayed;
+                    // WriteAllText creates a file, writes the specified string to the file,
+                    // and then closes the file.    You do NOT need to call Flush() or Close().
+                    System.IO.File.WriteAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt", text);
+                    Console.WriteLine("Stats have been saved.");
+                }
+
 				for (int i = 0; i < inputArray.Length; i++)
 				{
 					if (!Regex.Match(inputArray[i], pat).Success)
@@ -173,9 +188,13 @@ namespace TicTacToe
 			else
 			{
 				if (playerOne)
+                {
 					Console.WriteLine("************PLAYER 1************");
+                }
 				else
+                {
 					Console.WriteLine("************PLAYER 2************");
+                }
 			}
 
 			Console.WriteLine("*******HAS WON THE GAME*********");

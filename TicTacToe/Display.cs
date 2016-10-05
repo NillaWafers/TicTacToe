@@ -39,14 +39,16 @@ namespace TicTacToe
 
         public static void RenderStats()
         {
+            string text = System.IO.File.ReadAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt");
+            var playerWin = text.Split(new char[] { ',' }, 2);
+            string gamesPlayed = text.Substring(text.LastIndexOf(',') + 1);
             Console.Clear();
             Console.WriteLine("*******************************************");
             Console.WriteLine("**********3D TIC-TAC-TOE WIN STATS*********");
             Console.WriteLine("*******************************************");
             Console.WriteLine("");
-            Console.WriteLine("Winning Stats....");
-            Console.WriteLine("Something else here: ");
-            Console.WriteLine("Remember to display/read stuff from file.");
+            Console.WriteLine("Winning Stats.... Player One Wins: {0}",playerWin);
+            Console.WriteLine("Total number of games played: {0}",gamesPlayed);
             Console.WriteLine("");
             Console.WriteLine("Press any key to return to the Main Menu.");
         }
@@ -59,7 +61,7 @@ namespace TicTacToe
             Console.WriteLine("*******************************************");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("Are you sure you want to reset win stats? (Y/N)");
+            Console.WriteLine("Stats will automatically be overwritten when saved.");
         }
 
         public ConsoleRenderer()
