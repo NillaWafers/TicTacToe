@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
+    //public class IOException : SystemException
     public class ConsoleRenderer
     {
         private char[][,] gridDisplays;
@@ -31,24 +32,43 @@ namespace TicTacToe
             Console.WriteLine("************3D TIC-TAC-TOE RULES***********");
             Console.WriteLine("*******************************************");
             Console.WriteLine("");
-            Console.WriteLine("1.This is the first rule.");
-            Console.WriteLine("2.This is the second rule.");
+            Console.WriteLine("1. All user inputs must be of a valid format.");
+            Console.WriteLine("2. Typical game play input should be in the following format:.");
+            Console.WriteLine("   X,Y,Z where the letters represent their respective coordinates.");
+            Console.WriteLine("3. While playing a game the following may be typed in:");
+            Console.WriteLine("");
+            Console.WriteLine("EXIT - to return to menu.\nQUIT - to quit the game.\nSAVE - to save current status.");
+            Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Press any key to return to the Main Menu.");
         }
 
         public static void RenderStats()
         {
-            string text = System.IO.File.ReadAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt");
-            var playerWin = text.Split(new char[] { ',' }, 2);
-            string gamesPlayed = text.Substring(text.LastIndexOf(',') + 1);
+            //try
+            //{
+            //    string text = System.IO.File.ReadAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt");
+            //}
+            //// Catch the IOException generated if the 
+            //// specified part of the file is locked.
+            //catch (IOException e)
+            //{
+            //    Console.WriteLine(
+            //        "{0}: The write operation could not " +
+            //        "be performed because the specified " +
+            //        "part of the file is locked.",
+            //        e.GetType().Name);
+            //}
+            //string text = System.IO.File.ReadAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt");
+            //var playerWin = text.Split(new char[] { ',' }, 2);
+            //string gamesPlayed = text.Substring(text.LastIndexOf(',') + 1);
             Console.Clear();
             Console.WriteLine("*******************************************");
             Console.WriteLine("**********3D TIC-TAC-TOE WIN STATS*********");
             Console.WriteLine("*******************************************");
             Console.WriteLine("");
-            Console.WriteLine("Winning Stats.... Player One Wins: {0}",playerWin);
-            Console.WriteLine("Total number of games played: {0}",gamesPlayed);
+            Console.WriteLine("Winning Stats.... Player One Wins: {0}","0");
+            Console.WriteLine("Total number of games played: {0}","0");
             Console.WriteLine("");
             Console.WriteLine("Press any key to return to the Main Menu.");
         }

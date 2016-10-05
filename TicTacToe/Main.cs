@@ -137,7 +137,7 @@ namespace TicTacToe
                     string text = playerWin+","+gamesPlayed;
                     // WriteAllText creates a file, writes the specified string to the file,
                     // and then closes the file.    You do NOT need to call Flush() or Close().
-                    System.IO.File.WriteAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt", text);
+              //System.IO.File.WriteAllText(@"C:\Users\Blair Thompson\Desktop\CIT 255\TicTacToe\SaveStats.txt", text);
                     Console.WriteLine("Stats have been saved.");
                 }
 
